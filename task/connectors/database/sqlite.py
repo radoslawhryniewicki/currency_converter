@@ -1,18 +1,7 @@
 import os
 
-from sqlalchemy import (
-    Column,
-    Engine,
-    Float,
-    Integer,
-    MetaData,
-    String,
-    Table,
-    create_engine,
-    insert,
-    select,
-    func
-)
+from sqlalchemy import (Column, Engine, Float, Integer, MetaData, String,
+                        Table, create_engine, func, insert, select)
 from sqlalchemy.exc import NoSuchTableError, SQLAlchemyError
 
 from task.models import ConvertedPricePLN

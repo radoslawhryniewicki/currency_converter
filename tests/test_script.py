@@ -2,11 +2,8 @@ from unittest.mock import patch
 
 import pytest
 
-from script import (
-    currency_converter,
-    get_currency_rate_from_specified_data_source,
-    save_to_db,
-)
+from script import (currency_converter,
+                    get_currency_rate_from_specified_data_source, save_to_db)
 
 
 @patch("script.get_currency_rate_from_specified_data_source")
@@ -57,7 +54,6 @@ def test_save_to_db_successfull_in_prod_env(mock_sqlite_conn, caplog, converted_
     assert (
         "The converted price details has been saved into prod database" in caplog.text
     )
-
 
 
 @patch("script.JSONRawFileConnector")

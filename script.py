@@ -11,10 +11,8 @@ from task.connectors.local.file_reader import JSONRawFileConnector
 from task.enums import DataSource, Environment
 from task.logger import logger
 from task.models import ConvertedPricePLN
-from task.price_currency_converter import (
-    PriceConversionDetails,
-    PriceCurrencyConverterToPLN,
-)
+from task.price_currency_converter import (PriceConversionDetails,
+                                           PriceCurrencyConverterToPLN)
 
 
 def get_currency_rate_from_specified_data_source(
@@ -35,11 +33,8 @@ def save_to_db(converted_price: ConvertedPricePLN, env) -> None:
     else:
         sqlite_db_conn = SQLiteConnector()
         sqlite_db_conn.save(entity=converted_price)
-        
-    logger.log_info(
-        f"The converted price details has been saved into {env} database"
-    )
 
+    logger.log_info(f"The converted price details has been saved into {env} database")
 
 
 def currency_converter(conversion_details: PriceConversionDetails, env: str) -> None:
